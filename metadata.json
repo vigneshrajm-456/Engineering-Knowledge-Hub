@@ -1,0 +1,6 @@
+{
+  "name": "Engineering Knowledge Hub",
+  "description": "A refined, professional content portal and portfolio showcasing rocket telemetry, IoT devices, embedded systems, AI, and software development, with integrated searching, bookmarking, and dark mode.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
