@@ -114,40 +114,40 @@ export default function ProjectDetailsView({ project, onBack }: ProjectDetailsVi
 
           {/* Title & Writing */}
           <div className="space-y-4">
-            <h1 className="text-2xl sm:text-3xl font-black text-neutral-900 dark:text-neutral-50 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 dark:text-neutral-50 leading-tight">
               {project.title}
             </h1>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400 italic">
+            <p className="text-base text-neutral-500 dark:text-neutral-400 italic">
               Specification Log: Core software pipeline, RF packet layouts, and pinout diagrams.
             </p>
           </div>
 
-          <div className="prose dark:prose-invert max-w-none text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed font-normal space-y-4">
+          <div className="prose dark:prose-invert max-w-none text-base sm:text-lg text-neutral-800 dark:text-neutral-200 leading-relaxed font-normal space-y-6">
             {project.content.split('\n\n').map((para, i) => {
               if (para.startsWith('###')) {
                 return (
-                  <h3 key={i} className="text-base sm:text-lg font-bold text-neutral-950 dark:text-neutral-50 pt-3 pb-1 flex items-center gap-2">
-                    <Cpu className="w-4 h-5 text-indigo-500" /> {para.replace('###', '').trim()}
+                  <h3 key={i} className="text-xl sm:text-2xl font-black text-neutral-950 dark:text-neutral-50 pt-5 pb-2 border-b border-neutral-100 dark:border-neutral-800 flex items-center gap-2">
+                    <Cpu className="w-5 h-6 text-indigo-500" /> {para.replace('###', '').trim()}
                   </h3>
                 );
               }
               if (para.startsWith('####')) {
                 return (
-                  <h4 key={i} className="text-sm font-semibold text-neutral-800 dark:text-neutral-250 pt-2 font-mono">
+                  <h4 key={i} className="text-base sm:text-lg font-bold text-neutral-800 dark:text-neutral-250 pt-3 font-mono">
                     {para.replace('####', '').trim()}
                   </h4>
                 );
               }
               if (para.startsWith('-')) {
                 return (
-                  <ul key={i} className="list-disc pl-5 space-y-1">
+                  <ul key={i} className="list-disc pl-6 space-y-2">
                     {para.split('\n').map((li, idx) => (
-                      <li key={idx} className="text-xs sm:text-sm">{li.replace('-', '').trim()}</li>
+                      <li key={idx} className="text-sm sm:text-base">{li.replace('-', '').trim()}</li>
                     ))}
                   </ul>
                 );
               }
-              return <p key={i}>{para}</p>;
+              return <p key={i} className="tracking-wide">{para}</p>;
             })}
           </div>
 

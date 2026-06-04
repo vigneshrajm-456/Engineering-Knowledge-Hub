@@ -144,17 +144,17 @@ export default function VideoDetailsView({ video, onBack }: VideoDetailsViewProp
 
           {/* Video Titles details */}
           <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-850 p-6 rounded-2xl shadow-xs space-y-3">
-            <h1 className="text-xl sm:text-2xl font-black text-neutral-900 dark:text-neutral-55 tracking-tight leading-snug">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-900 dark:text-neutral-50 tracking-tight leading-snug">
               {video.title}
             </h1>
-            <div className="flex flex-wrap gap-4 text-xs font-mono text-neutral-500 py-2 border-b border-neutral-100 dark:border-neutral-800/80">
+            <div className="flex flex-wrap gap-4 text-sm font-mono text-neutral-500 py-2 border-b border-neutral-100 dark:border-neutral-800/80">
               <span className="flex items-center gap-1"><Eye className="w-3.5 h-3.5" />{video.views.toLocaleString()} views</span>
               <span>·</span>
               <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />Published {video.date}</span>
               <span>·</span>
-              <span className="px-2 py-0.5 rounded-sm bg-neutral-50 dark:bg-neutral-950 text-[10px] font-bold text-neutral-400 border border-neutral-250 dark:border-neutral-800/60 self-start">{video.category}</span>
+              <span className="px-2 py-0.5 rounded-sm bg-neutral-50 dark:bg-neutral-950 text-xs font-bold text-neutral-400 border border-neutral-250 dark:border-neutral-800/60 self-start">{video.category}</span>
             </div>
-            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-350 leading-relaxed font-sans pt-2">
+            <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-350 leading-relaxed font-sans pt-2">
               {video.description}
             </p>
           </div>
@@ -163,10 +163,10 @@ export default function VideoDetailsView({ video, onBack }: VideoDetailsViewProp
         {/* INTERACTIVE TRANSCRIPT & GUIDES PANEL */}
         <div className="lg:col-span-4 space-y-6">
           <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-855 rounded-2xl p-5 shadow-xs space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-400 font-mono border-b border-neutral-100 dark:border-neutral-800 pb-3 flex items-center gap-1.5">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 font-mono border-b border-neutral-100 dark:border-neutral-800 pb-3 flex items-center gap-1.5">
               <ListPlus className="w-4 h-4 text-indigo-500" /> Interactive Transcript
             </h3>
-            <p className="text-[10px] text-neutral-400 leading-normal font-sans">
+            <p className="text-xs text-neutral-400 leading-normal font-sans">
               Click any sentence timestamp below to fast-forward the mock stream simulation:
             </p>
             <div className="space-y-3">
@@ -182,10 +182,10 @@ export default function VideoDetailsView({ video, onBack }: VideoDetailsViewProp
                         : 'bg-neutral-50 dark:bg-neutral-950 border-neutral-100 dark:border-neutral-850 hover:border-neutral-200'
                     }`}
                   >
-                    <span className="font-mono text-[10px] font-bold text-indigo-600 dark:text-indigo-400 block mb-1">
+                    <span className="font-mono text-xs font-bold text-indigo-600 dark:text-indigo-400 block mb-1">
                       00:{line.time.toString().padStart(2, '0')}
                     </span>
-                    <p className={`text-xs ${isActive ? 'text-neutral-900 dark:text-neutral-200 font-bold' : 'text-neutral-600 dark:text-neutral-400'}`}>
+                    <p className={`text-sm ${isActive ? 'text-neutral-900 dark:text-neutral-200 font-bold' : 'text-neutral-600 dark:text-neutral-400'}`}>
                       {line.text}
                     </p>
                   </div>
@@ -196,10 +196,10 @@ export default function VideoDetailsView({ video, onBack }: VideoDetailsViewProp
 
           {/* Related guides checklist */}
           <div className="bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-850 p-5 rounded-2xl space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400 font-mono flex items-center gap-1.5">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-neutral-400 font-mono flex items-center gap-1.5">
               <CheckSquare className="w-4 h-4 text-indigo-500" /> Ground Verification Tasks
             </h4>
-            <div className="space-y-2 text-xs text-neutral-600 dark:text-neutral-400">
+            <div className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
               <label className="flex items-start gap-2 cursor-pointer">
                 <input type="checkbox" defaultChecked className="mt-0.5 rounded border-neutral-300 dark:border-neutral-800 text-indigo-600 focus:ring-indigo-500" />
                 <span>Calibrate oscilloscope load input impedance values (50Ω vs 1MΩ).</span>

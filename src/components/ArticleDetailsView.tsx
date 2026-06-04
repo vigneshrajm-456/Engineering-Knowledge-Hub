@@ -144,50 +144,48 @@ export default function ArticleDetailsView({
           </div>
 
           {/* Title */}
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-slate-50 leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-slate-50 leading-tight">
             {article.title}
           </h1>
 
           {/* Post stats metadata */}
-          <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-500 pb-5 border-b border-slate-200/80 dark:border-slate-800/80">
+          <div className="flex flex-wrap items-center gap-4 text-sm font-mono text-slate-500 pb-5 border-b border-slate-200/80 dark:border-slate-800/80">
             <div className="flex items-center gap-2">
               <img
                 src={article.author.avatar}
                 alt={article.author.name}
                 referrerPolicy="no-referrer"
-                className="w-6 h-6 rounded-full"
+                className="w-7 h-7 rounded-full"
               />
-              <span className="font-semibold text-slate-700 dark:text-slate-300">{article.author.name}</span>
+              <span className="font-semibold text-slate-700 dark:text-slate-300 text-sm">{article.author.name}</span>
             </div>
             <span>·</span>
             <span className="flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5" /> {article.date}
+              <Calendar className="w-4 h-4" /> {article.date}
             </span>
             <span>·</span>
             <span className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5" /> {article.readingTime}
+              <Clock className="w-4 h-4" /> {article.readingTime}
             </span>
             <span>·</span>
             <span className="flex items-center gap-1">
-              <Eye className="w-3.5 h-3.5" /> {article.views} views
+              <Eye className="w-4 h-4" /> {article.views} views
             </span>
           </div>
 
           {/* Simulated technical details markdown parsed nicely */}
-          <div className="prose dark:prose-invert max-w-none text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed space-y-4 font-normal">
-           {(article.content || article.excerpt || "No content available")
-              .split('\n\n')
-              .map((paragraph, index) => {
+          <div className="prose dark:prose-invert max-w-none text-base sm:text-lg text-slate-800 dark:text-slate-200 leading-relaxed space-y-6 font-normal">
+            {article.content.split('\n\n').map((paragraph, index) => {
               if (paragraph.startsWith('###')) {
                 return (
-                  <h3 key={index} className="text-base font-bold text-slate-900 dark:text-slate-50 pt-4 pb-1">
+                  <h3 key={index} className="text-lg sm:text-xl md:text-2xl font-black text-slate-950 dark:text-slate-50 pt-6 pb-2 border-b border-slate-100 dark:border-slate-800/60 flex items-center gap-2">
                     {paragraph.replace('###', '').trim()}
                   </h3>
                 );
               }
               if (paragraph.startsWith('-')) {
                 return (
-                  <ul key={index} className="list-disc pl-5 space-y-1 text-xs">
+                  <ul key={index} className="list-disc pl-6 space-y-2 text-sm sm:text-base">
                     {paragraph.split('\n').map((li, liIdx) => (
                       <li key={liIdx}>{li.replace('-', '').trim()}</li>
                     ))}
@@ -197,13 +195,13 @@ export default function ArticleDetailsView({
               if (paragraph.startsWith('```')) {
                 const codeLines = paragraph.replace(/```[a-z]*/, '').replace(/```$/, '').trim();
                 return (
-                  <pre key={index} className="bg-slate-950 text-emerald-400 p-4 rounded-xl border border-slate-800 font-mono text-xs overflow-x-auto leading-relaxed whitespace-pre">
+                  <pre key={index} className="bg-slate-950 text-emerald-350 p-5 rounded-xl border border-slate-800 font-mono text-xs sm:text-sm overflow-x-auto leading-relaxed whitespace-pre">
                     {codeLines}
                   </pre>
                 );
               }
               return (
-                <p key={index} className="whitespace-pre-line">
+                <p key={index} className="whitespace-pre-line tracking-wide">
                   {paragraph}
                 </p>
               );
